@@ -8,7 +8,12 @@ import './styles.css';
 const TeacherList: React.FC = () => {
   return (
     <div id="page-teacher-list">
-      <PageHeader title="Estes são os proffys disponíveis.">
+      <PageHeader
+        title="Estes são os proffys disponíveis."
+        page="Estudar"
+        icon="smile"
+        descriptionIcon="Nós temos 32 professores."
+      >
         <form id="search-teachers">
           <div className="input-block">
             <label htmlFor="subjects">Matéria</label>
