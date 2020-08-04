@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import PageHeader from '../../components/PageHeader';
 import TeacherItem from '../../components/TeacherItem';
@@ -6,6 +6,7 @@ import TeacherItem from '../../components/TeacherItem';
 import './styles.css';
 
 const TeacherList: React.FC = () => {
+  const [teachers, setTeachers] = useState();
   return (
     <div id="page-teacher-list">
       <PageHeader
@@ -32,6 +33,13 @@ const TeacherList: React.FC = () => {
 
       <main>
         <TeacherItem />
+        <footer>
+          {
+            teachers
+              ? <p>Estes são todos os resultados</p>
+              : <p>Nenhum professor encontrado <br /> com sua pesquisa.</p>
+          }
+        </footer>
       </main>
     </div>
   )
