@@ -1,0 +1,45 @@
+.background-success {
+  width: 100vw;
+  height: 100vh;
+  background: url("../../assets/images/success-background.svg") no-repeat center var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.background-success h1 {
+  font-weight: 700;
+  font-size: 5.6rem;
+  color: var(--color-title-in-primary);
+  line-height: 2.4em;
+}
+
+.background-success p {
+  font-size: 1.6rem;
+  color: var(--color-text-in-primary);
+  line-height: 2.6rem;
+}
+
+.background-success a {
+  width: 180px;
+  height: 5.6rem;
+  background: var(--color-secundary);
+  color: var(--color-button-text);
+  border: 0;
+  border-radius: 0.8rem;
+  cursor: pointer;
+  font: 700 1.6rem Archivo;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: background-color 0.2s;
+  margin-top: 3.2rem;
+  outline: 0;
+}
+
+.background-success a:hover {
+  background: var(--color-secundary-dark);
+}

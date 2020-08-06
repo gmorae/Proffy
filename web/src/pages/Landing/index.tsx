@@ -1,6 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import { useAxios } from '../../hooks/useAxios';
+
+
 import './styles.css';
 
 import logoImg from '../../assets/images/logo.svg';
@@ -10,7 +13,14 @@ import studyIcon from '../../assets/images/icons/study.svg';
 import giveClassesIcon from '../../assets/images/icons/give-classes.svg';
 import purpleHeartIcons from '../../assets/images/icons/purple-heart.svg';
 
+
 const Landing: React.FC = () => {
+  const { data } = useAxios<{total: number}>('connections')
+
+  if (!data) {
+    return <p>Carregando...</p>
+  }
+
   return (
     <div id="page-landing">
       <div id="page-landing-content" className="container">
@@ -35,7 +45,7 @@ const Landing: React.FC = () => {
         </div>
 
         <span className="total-connections">
-          Total de 200 conexões realizadas
+          Total de {data?.total} conexões realizadas
           <img src={purpleHeartIcons} alt="Coração roxo" />
         </span>
       </div>

@@ -3,32 +3,50 @@ import React from 'react';
 import whatsIcon from '../../assets/images/icons/whatsapp.svg';
 
 import './styles.css';
+import api from '../../services/api';
 
+interface Params {
+  teacher: {
+    id: number,
+    name: string,
+    subject: string,
+    bio: string,
+    cost: number,
+    whatsapp: string,
+    avatar: string
+  }
+}
 
-const TeacherItem: React.FC = () => {
+const TeacherItem: React.FC<Params> = ({ teacher }) => {
+
+  function createNewConnection() {
+    api.post('connections', {
+      user_id: teacher.id
+    })
+  }
+
+  function formatValue(value: number) {
+    return Intl.NumberFormat('pt-br', { style: 'currency', currency: 'BRL' }).format(value)
+  }
   return (
     <article className="teacher-item">
       <header>
-        <img src="https://avatars0.githubusercontent.com/u/41982298?v=4" alt="Gabriel Moraes" />
+        <img src={teacher.avatar} alt={teacher.name} />
         <div>
-          <strong>Gabriel Moraes</strong>
-          <span>Matemática</span>
+          <strong>{teacher.name}</strong>
+          <span>{teacher.subject}</span>
         </div>
       </header>
-      <p>
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-            <br /><br />
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa eum in aspernatur perspiciatis ipsam animi laboriosam, provident minima eos amet dolorem iusto, atque cupiditate quisquam dicta deserunt totam ab velit!
-          </p>
+      <p>{teacher.bio}</p>
       <footer>
         <p>
           Preço/hora
-              <strong>R$ 80,00</strong>
+          <strong>{formatValue(+teacher.cost)}</strong>
         </p>
-        <button type="button">
+        <a target="_blanck" onClick={createNewConnection} href={`https://wa.me/55${teacher.whatsapp}`}>
           <img src={whatsIcon} alt="Whatsapp" />
-              Entrar em contato
-            </button>
+          Entrar em contato
+        </a>
       </footer>
     </article>
   )
