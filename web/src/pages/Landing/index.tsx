@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import { useAxios } from '../../hooks/useAxios';
-
+import Loading from '../../components/Loading';
 
 import './styles.css';
 
@@ -18,7 +18,7 @@ const Landing: React.FC = () => {
   const { data } = useAxios<{total: number}>('connections')
 
   if (!data) {
-    return <p>Carregando...</p>
+    return <Loading />
   }
 
   return (
