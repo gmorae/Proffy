@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, Image, Text } from 'react-native';
 import { RectButton } from 'react-native-gesture-handler';
 import { useNavigation } from '@react-navigation/native';
+
+import api from '../../services/api'
 
 import landingImg from '../../assets/images/landing.png';
 import studyIcon from '../../assets/images/icons/study.png';
@@ -12,7 +14,12 @@ import styles from './styles';
 
 const Lading: React.FC = () => {
 
+  const [totalConnections, setTotalConnections] = useState(0)
   const { navigate } = useNavigation();
+
+  useEffect(() => {
+    api.get('connections').then( response => setTotalConnections(response.data.total))
+  }, [])
 
   function handleNavigateToStudy() {
     navigate('study');
@@ -47,7 +54,7 @@ const Lading: React.FC = () => {
         </RectButton>
       </View>
       <Text style={styles.totalConnections}>
-        Total de 1 conexões já realizadas {' '}
+        Total de {totalConnections} conexões já realizadas {' '}
         <Image source={heartIcon} />
       </Text>
     </View>

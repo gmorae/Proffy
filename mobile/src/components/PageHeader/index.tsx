@@ -15,7 +15,7 @@ interface Params {
   amountProffy: number
 }
 
-const PageHeader: React.FC<Params> = ({ title, amountProffy }) => {
+const PageHeader: React.FC<Params> = ({ title, amountProffy, children }) => {
 
   const { navigate } = useNavigation();
 
@@ -33,23 +33,26 @@ const PageHeader: React.FC<Params> = ({ title, amountProffy }) => {
         <Image resizeMode="contain" source={logoImg} />
       </View>
       <View style={styles.container}>
-        <Text style={styles.title}>
-          {title}
-        </Text>
-        <View style={styles.contentIcon}>
-          {
-            title.split(" ").indexOf("favoritos") > 0
-              ? <Image source={favoriteIcon} />
-              : <Image source={profIcon} />
-          }
-          <Text style={styles.titleIcon}>
-            {
-              amountProffy > 1
-                ? `${amountProffy} Proffys`
-                : `${amountProffy} Proffy`
-            }
+        <View style={styles.containerTextIcon}>
+          <Text style={styles.title}>
+            {title}
           </Text>
+          <View style={styles.contentIcon}>
+            {
+              title.split(" ").indexOf("favoritos") > 0
+                ? <Image source={favoriteIcon} />
+                : <Image source={profIcon} />
+            }
+            <Text style={styles.titleIcon}>
+              {
+                amountProffy > 1
+                  ? `${amountProffy} Proffys`
+                  : `${amountProffy} Proffy`
+              }
+            </Text>
+          </View>
         </View>
+        {children}
       </View>
     </>
   )

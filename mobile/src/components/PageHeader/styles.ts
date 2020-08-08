@@ -2,8 +2,12 @@ import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
   container: {
-    padding: 50,
+    paddingHorizontal: 50,
+    paddingBottom: 50,
     backgroundColor: "#8357E5",
+  },
+
+  containerTextIcon: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between'
