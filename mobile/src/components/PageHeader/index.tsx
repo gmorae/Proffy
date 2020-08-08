@@ -11,11 +11,12 @@ import profIcon from '../../assets/images/icons/proffys.png';
 import styles from './styles';
 
 interface Params {
-  title: string,
-  amountProffy: number
+  titlePage?: string;
+  title?: string,
+  amountProffy?: number
 }
 
-const PageHeader: React.FC<Params> = ({ title, amountProffy, children }) => {
+const PageHeader: React.FC<Params> = ({ titlePage, title, amountProffy, children }) => {
 
   const { navigate } = useNavigation();
 
@@ -29,31 +30,33 @@ const PageHeader: React.FC<Params> = ({ title, amountProffy, children }) => {
         <BorderlessButton onPress={handleGoBack}>
           <Image resizeMode="contain" source={backIcon} />
         </BorderlessButton>
-        <Text style={styles.titlePage}>Estudar</Text>
+        <Text style={styles.titlePage}>{titlePage ? titlePage : "Estudar"}</Text>
         <Image resizeMode="contain" source={logoImg} />
       </View>
-      <View style={styles.container}>
-        <View style={styles.containerTextIcon}>
-          <Text style={styles.title}>
-            {title}
-          </Text>
-          <View style={styles.contentIcon}>
-            {
-              title.split(" ").indexOf("favoritos") > 0
-                ? <Image source={favoriteIcon} />
-                : <Image source={profIcon} />
-            }
-            <Text style={styles.titleIcon}>
-              {
-                amountProffy > 1
-                  ? `${amountProffy} Proffys`
-                  : `${amountProffy} Proffy`
-              }
+      {!titlePage && ((
+        <View style={styles.container}>
+          <View style={styles.containerTextIcon}>
+            <Text style={styles.title}>
+              {title}
             </Text>
+            <View style={styles.contentIcon}>
+              {
+                title && title.split(" ").indexOf("favoritos") > 0
+                  ? <Image source={favoriteIcon} />
+                  : <Image source={profIcon} />
+              }
+              <Text style={styles.titleIcon}>
+                {
+                  amountProffy && amountProffy > 1
+                    ? `${amountProffy} Proffys`
+                    : `${amountProffy} Proffy`
+                }
+              </Text>
+            </View>
           </View>
+          {children}
         </View>
-        {children}
-      </View>
+      ))}
     </>
   )
 }
