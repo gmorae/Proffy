@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, Text, ScrollView, TextInput, TouchableOpacity } from 'react-native';
 import { Feather as Icon } from '@expo/vector-icons';
 import { RectButton } from 'react-native-gesture-handler';
@@ -19,6 +19,7 @@ const TeacherList: React.FC = () => {
 
   const [teachers, setTeachers] = useState([])
   const [favorites, setFavorites] = useState<number[]>([]);
+  const [numberTeachers, setNumberTeachers] = useState(0)
 
   function loadFavorites() {
     AsyncStorage.getItem('favorites').then(response => {
@@ -50,9 +51,13 @@ const TeacherList: React.FC = () => {
     })
   }
 
+  useEffect(() => {
+    api.get('users').then(response => setNumberTeachers(response.data.total))
+  }, [])
+
   return (
     <View style={styles.container}>
-      <PageHeader title="Proffys disponíveis" amountProffy={32}>
+      <PageHeader title="Proffys disponíveis" amountProffy={numberTeachers}>
         <TouchableOpacity style={styles.filter} onPress={handleToggleFiltersVisible}>
           <View style={styles.buttonFilter}>
             <Icon name="filter" color="#04D361" size={20} />
