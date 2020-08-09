@@ -1,0 +1,169 @@
+.container-login {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: stretch;
+  background: var(--color-primary);
+}
+
+.content-login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 700px;
+  padding-top: 32px;
+  background: var(--color-background);
+}
+
+@keyframes appearFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animation-login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+
+  animation: appearFromLeft 1s;
+}
+
+.animation-login form {
+  margin: 32px 0;
+  width: 340px;
+  text-align: center;
+}
+
+.animation-login h1 {
+  margin-bottom: 3.6rem;
+  line-height: 3.6rem;
+  color: var(--color-text-title);
+  font-weight: 600;
+  font-family: Poppins;
+  text-align: start;
+}
+
+.animation-login footer > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 2.4rem;
+}
+
+.animation-login form a {
+  color: var(--color-text-complement);
+  display: block;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.animation-login footer div .checkbox {
+  display: flex;
+  align-items: center;
+  color: var(--color-text-complement);
+}
+
+.animation-login footer div .checkbox input {
+  margin-right: 0.8rem;
+}
+
+.animation-login button {
+  width: 100%;
+  height: 5.6rem;
+  background: var(--color-secundary);
+  color: var(--color-button-text);
+  border: 0;
+  border-radius: 0.8rem;
+  cursor: pointer;
+  font: 700 1.6rem Archivo;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: background-color 0.2s;
+  margin-top: 3.2rem;
+  outline: 0;
+}
+
+.animation-login button:hover {
+  background: var(--color-secundary-dark);
+}
+
+.animation-login > footer {
+  margin-top: 13.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.animation-login > footer span {
+  display: flex;
+  flex-direction: column;
+  font-size: 1.6rem;
+  font-family: Poppins;
+  line-height: 2.6rem;
+}
+
+.animation-login > footer a {
+  color: var(--color-primary-darker);
+  font-size: 1.6rem;
+  font-family: Poppins;
+  line-height: 2.6rem;
+  font-weight: 600;
+  text-decoration-line: underline;
+}
+
+.animation-login > footer p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.animation-login > footer p img {
+  margin-left: 0.8rem;
+}
+
+.background-login {
+  flex: 1;
+  background: url("../../assets/images/background-login.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: auto;
+  position: relative;
+  width: 90%;
+  height: 90%;
+  display: none;
+}
+
+.background-login .text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+}
+
+.text img {
+  width: 70%;
+}
+
+.text h2 {
+  color: var(--color-text-in-primary);
+  width: 50%;
+}
+
+@media (min-width: 1024px) {
+  .background-login {
+    display: block;
+  }
+}
