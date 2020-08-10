@@ -11,10 +11,6 @@
   border-radius: 0.8rem 0.8rem 0 0;
 }
 
-.input-login + .input-login {
-  border-radius: 0 0 0.8rem 0.8rem;
-}
-
 .input-login label {
   font-size: 1.4rem;
   line-height: 2.4rem;

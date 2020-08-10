@@ -1,4 +1,4 @@
-.container-login {
+.container-register {
   height: 100vh;
   width: 100%;
   display: flex;
@@ -6,7 +6,7 @@
   background: var(--color-primary);
 }
 
-.content-login {
+.content-register {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -17,34 +17,35 @@
   background: var(--color-background);
 }
 
-@keyframes appearFromRight {
+@keyframes appearFromLeft {
   from {
     opacity: 0;
-    transform: translateX(50px);
+    transform: translateX(-50px);
   }
+
   to {
     opacity: 1;
     transform: translateX(0);
   }
 }
 
-.animation-login {
+.animation-register {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   justify-content: flex-start;
 
-  animation: appearFromRight 1s;
+  animation: appearFromLeft 1s;
 }
 
-.animation-login form {
+.animation-register form {
   margin: 32px 0;
   width: 340px;
   text-align: center;
 }
 
-.animation-login h1 {
-  margin-bottom: 3.6rem;
+.animation-register h1 {
+  margin-bottom: 2rem;
   line-height: 3.6rem;
   color: var(--color-text-title);
   font-weight: 600;
@@ -52,35 +53,25 @@
   text-align: start;
 }
 
-.animation-login footer > div {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-top: 2.4rem;
-}
-
-.animation-login form a {
-  color: var(--color-text-complement);
-  display: block;
-  text-decoration: none;
-  transition: color 0.2s;
+.animation-register p {
+  margin-bottom: 4.2rem;
+  font-family: Poppins;
+  font-size: 1.6rem;
+  line-height: 2.6rem;
+  color: var(--color-text-base);
+  text-align: start;
+  width: 180px;
 }
 
 .input-login + .input-login {
-  border-radius: 0 0 0.8rem 0.8rem;
+  border-radius: 0;
 }
 
-.animation-login footer div .checkbox {
-  display: flex;
-  align-items: center;
-  color: var(--color-text-complement);
+.input-login:nth-child(6n) {
+  border-radius: 0 0 0.8rem 0.8rem !important;
 }
 
-.animation-login footer div .checkbox input {
-  margin-right: 0.8rem;
-}
-
-.animation-login button {
+.animation-register button {
   width: 100%;
   height: 5.6rem;
   background: var(--color-secundary);
@@ -98,46 +89,11 @@
   outline: 0;
 }
 
-.animation-login button:hover {
+.animation-register button:hover {
   background: var(--color-secundary-dark);
 }
 
-.animation-login > footer {
-  margin-top: 13.2rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-}
-
-.animation-login > footer span {
-  display: flex;
-  flex-direction: column;
-  font-size: 1.6rem;
-  font-family: Poppins;
-  line-height: 2.6rem;
-}
-
-.animation-login > footer a {
-  color: var(--color-primary-darker);
-  font-size: 1.6rem;
-  font-family: Poppins;
-  line-height: 2.6rem;
-  font-weight: 600;
-  text-decoration-line: underline;
-}
-
-.animation-login > footer p {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.animation-login > footer p img {
-  margin-left: 0.8rem;
-}
-
-.background-login {
+.background-register {
   flex: 1;
   background: url("../../assets/images/background-login.svg");
   background-position: center;
@@ -149,7 +105,7 @@
   display: none;
 }
 
-.background-login .text {
+.background-register .text {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -167,7 +123,7 @@
 }
 
 @media (min-width: 1024px) {
-  .background-login {
+  .background-register {
     display: block;
   }
 }

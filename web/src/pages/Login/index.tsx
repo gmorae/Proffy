@@ -37,7 +37,7 @@ const Login: React.FC = () => {
           <footer>
             <span>
               Não tem uma conta ?
-              <Link to="">Cadastre-se</Link>
+              <Link to="register">Cadastre-se</Link>
             </span>
             <p>
               É de graça
