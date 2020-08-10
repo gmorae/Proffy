@@ -7,7 +7,7 @@ import ForgotPassword from './pages/Forgot-password';
 import Landing from './pages/Landing';
 import TeacherList from './pages/TeacherList';
 import TeacherForm from './pages/TeacherForm';
-import SuccessfullyRegistered from './pages/SuccessfullyRegistered';
+import Successfully from './pages/Successfully';
 
 const Routes = () => (
   <Router>
@@ -17,7 +17,7 @@ const Routes = () => (
     <Route path="/landing" exact component={Landing} />
     <Route path="/study" component={TeacherList} />
     <Route path="/give-classes" component={TeacherForm} />
-    <Route path="/successfully-registered" component={SuccessfullyRegistered} />
+    <Route path="/successfully" component={Successfully} />
   </Router>
 )
 

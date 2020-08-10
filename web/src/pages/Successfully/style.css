@@ -20,6 +20,7 @@
   font-size: 1.6rem;
   color: var(--color-text-in-primary);
   line-height: 2.6rem;
+  width: 300px;
 }
 
 .background-success a {
@@ -38,6 +39,7 @@
   transition: background-color 0.2s;
   margin-top: 3.2rem;
   outline: 0;
+  line-height: 2.6rem;
 }
 
 .background-success a:hover {

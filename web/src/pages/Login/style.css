@@ -67,7 +67,7 @@
 }
 
 .input-login + .input-login {
-  border-radius: 0 0 0.8rem 0.8rem;
+  border-radius: 0 0 0.8rem 0.8rem !important;
 }
 
 .animation-login footer div .checkbox {
