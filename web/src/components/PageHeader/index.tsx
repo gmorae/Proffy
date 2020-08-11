@@ -21,7 +21,7 @@ const PageHeader: React.FC<Params> = (props) => {
     <header className="page-header">
       <div className="purple-dark">
         <div className="top-bar-container">
-          <Link to="/">
+          <Link to="/landing">
             <img src={backLink} alt="Voltar" />
           </Link>
           <p>{props.page}</p>
