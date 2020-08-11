@@ -3,6 +3,7 @@ import { Router } from 'express';
 import ClassesController from './controllers/ClassesController';
 import ConnectionsController from './controllers/ConnectionsController';
 import UsersController from './controllers/UsersController';
+import SessionController from './controllers/SessionController';
 
 const router = Router();
 
@@ -20,5 +21,8 @@ router.get('/connections', ConnectionsController.index);
 router.post('/connections', ConnectionsController.create);
 
 router.get('/users', UsersController.index);
+router.post('/users', UsersController.create);
 
-export { router }
+router.post('/login', SessionController.store);
+
+export default router
