@@ -1,5 +1,5 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, FormEvent } from 'react';
+import { Link, useHistory } from 'react-router-dom';
 
 import InputLogin from '../../components/InputLogin';
 
@@ -7,8 +7,21 @@ import heartPurple from '../../assets/images/icons/purple-heart.svg';
 import logoImg from '../../assets/images/logo.svg';
 
 import './style.css';
+import api from '../../services/api';
 
 const Login: React.FC = () => {
+  const [email, set_email] = useState('');
+  const [password, set_password] = useState('');
+
+  const history = useHistory();
+
+  function handleLogin(e: FormEvent) {
+    e.preventDefault();
+    api.post('login', { email, password }).then((res) => {
+      localStorage.setItem('token', JSON.stringify(res.data.token));
+      history.push('/landing');
+    })
+  }
   return (
     <div className="container-login">
       <div className="background-login">
@@ -19,10 +32,10 @@ const Login: React.FC = () => {
       </div>
       <div className="content-login">
         <div className="animation-login">
-          <form>
+          <form onSubmit={handleLogin}>
             <h1>Fazer Login</h1>
-            <InputLogin name="email" label="E-mail" type="text" />
-            <InputLogin name="password" label="Senha" type="password" />
+            <InputLogin name="email" label="E-mail" value={email} onChange={e => set_email(e.target.value)} />
+            <InputLogin name="password" label="Senha" type="password" value={password} onChange={e => set_password(e.target.value)} />
             <footer>
               <div>
                 <div className="checkbox">
@@ -31,7 +44,7 @@ const Login: React.FC = () => {
                 </div>
                 <Link to="forgot-password">Esqueci minha senha</Link>
               </div>
-              <button type="button">Entrar</button>
+              <button type="submit">Entrar</button>
             </footer>
           </form>
           <footer>
